@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>banner</title>
+<style>
+  /* One template for every banner and social preview. The look follows erikhernal.com's
+     DESIGN.md: quad-ruled paper, a red margin rule, binder holes, blue-black ink. */
+  @font-face { font-family: 'Source Serif 4 Variable'; src: url('node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2') format('woff2'); font-weight: 200 900; }
+  @font-face { font-family: 'Archivo Narrow Variable'; src: url('node_modules/@fontsource-variable/archivo-narrow/files/archivo-narrow-latin-wght-normal.woff2') format('woff2'); font-weight: 400 700; }
+  @font-face { font-family: 'Nanum Pen Script'; src: url('node_modules/@fontsource/nanum-pen-script/files/nanum-pen-script-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+
+  :root {
+    --paper: #f3f5ef; --desk: #dfe3da; --ink: #1c2752; --ink-soft: #44507a; --red: #c03f13;
+    --grid: rgba(28, 39, 82, 0.06); --grid-major: rgba(28, 39, 82, 0.1);
+    --g: 24px;
+  }
+  body.dark {
+    --paper: #161d3a; --desk: #0c1128; --ink: #eef1ea; --ink-soft: #b4bcd6; --red: #f0784c;
+    --grid: rgba(238, 241, 234, 0.05); --grid-major: rgba(238, 241, 234, 0.09);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; }
+  body {
+    position: relative; overflow: hidden;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: calc(var(--g) * 5) calc(var(--g) * 5), calc(var(--g) * 5) calc(var(--g) * 5), var(--g) var(--g), var(--g) var(--g);
+    color: var(--ink);
+    font-family: 'Source Serif 4 Variable', Georgia, serif;
+    font-optical-sizing: auto;
+  }
+  .rule { position: absolute; top: 0; bottom: 0; left: 96px; width: 2px; background: var(--red); }
+  .holes { position: absolute; left: 26px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+  .holes i { width: 18px; height: 18px; border-radius: 50%; background: var(--desk); box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.18); }
+  .ref { position: absolute; left: 0; width: 84px; text-align: right; font-family: 'Nanum Pen Script', cursive; color: var(--red); font-size: 24px; line-height: 1; }
+  .sheet { position: absolute; left: 120px; right: 48px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+  .label { font-family: 'Archivo Narrow Variable', 'Arial Narrow', Arial, sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); padding-bottom: 10px; border-bottom: 2px solid var(--ink); align-self: flex-start; }
+  h1 { font-weight: 420; letter-spacing: -0.02em; line-height: 1.06; text-wrap: balance; margin-top: 18px; }
+  .lede { color: var(--ink-soft); font-size: 18px; line-height: 1.45; margin-top: 12px; max-width: 52ch; }
+  .hand { font-family: 'Nanum Pen Script', cursive; font-size: 26px; line-height: 1.1; margin-top: 14px; transform: rotate(-1.5deg); transform-origin: left center; align-self: flex-start; }
+
+  /* banner: 800 by 200 at 2x */
+  body.banner h1 { font-size: 34px; max-width: 34ch; margin-top: 14px; }
+  body.banner .label { font-size: 12px; padding-bottom: 8px; }
+  body.banner .hand { margin-top: 10px; font-size: 24px; }
+  body.banner .ref { top: 34px; }
+  body.banner .lede { max-width: 64ch; }
+  body.banner.name h1 { font-size: 44px; }
+  /* social preview: 640 by 320 at 2x, the 1280 by 640 GitHub asks for */
+  body.social .rule { left: 84px; }
+  body.social .holes { left: 22px; }
+  body.social .sheet { left: 108px; right: 40px; }
+  body.social .ref { top: 40px; width: 72px; }
+  body.social h1 { font-size: 46px; }
+  body.social .lede { font-size: 19px; }
+</style>
+</head>
+<body>
+  <div class="holes"><i></i><i></i></div>
+  <div class="rule"></div>
+  <div class="ref" id="ref"></div>
+  <div class="sheet">
+    <div class="label" id="label"></div>
+    <h1 id="title"></h1>
+    <p class="lede" id="lede"></p>
+    <p class="hand" id="hand"></p>
+  </div>
+<script>
+  // Every value comes from the URL, so render.mjs can make each image from this one file.
+  const q = new URLSearchParams(location.search);
+  document.body.classList.add(q.get('kind') || 'banner', q.get('theme') || 'light');
+  if (q.get('name')) document.body.classList.add('name');
+  for (const id of ['ref', 'label', 'title', 'lede', 'hand']) {
+    const el = document.getElementById(id);
+    const v = q.get(id);
+    if (v) el.textContent = v; else el.remove();
+  }
+</script>
+</body>
+</html>
