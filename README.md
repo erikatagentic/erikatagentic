@@ -17,5 +17,6 @@ The repos below are clean copies of real systems. The history stays private beca
 - [agent-guardrails](https://github.com/erikatagentic/agent-guardrails): the checks that run before an AI coder's commit lands.
 - [reply-sorter](https://github.com/erikatagentic/reply-sorter): tells you how many replies came from a person.
 - [formd-signals](https://github.com/erikatagentic/formd-signals): finds companies that just raised money, from free SEC filings.
+- [open-brain](https://github.com/erikatagentic/open-brain): a memory for AI coding agents, kept in one local file.
 
 [erikhernal.com](https://erikhernal.com/?utm_source=github) · [erik@erikhernal.com](mailto:erik@erikhernal.com) · [LinkedIn](https://linkedin.com/in/erikhernal/)

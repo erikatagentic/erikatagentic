@@ -17,6 +17,7 @@ const SHOWCASES = {
   'agent-guardrails': "Five checks that stop a coding agent's risky moves before\u00a0they\u00a0run.",
   'reply-sorter': 'Sorts cold-email replies and counts the yeses a\u00a0person\u00a0wrote.',
   'formd-signals': 'Finds companies that just raised money, from free SEC\u00a0filings.',
+  'open-brain': 'A memory for AI coding agents, kept in one local\u00a0file.',
 };
 
 const jobs = [];
