@@ -14,5 +14,8 @@ The repos below are clean copies of real systems. The history stays private beca
 - [erikhernal.com](https://erikhernal.com/?utm_source=github): the notebook. Four write-ups, each with the number that moved and the file it came from.
 - [list-gate](https://github.com/erikatagentic/list-gate): a check that refuses to ship a bad lead list.
 - [scrape-ladder](https://github.com/erikatagentic/scrape-ladder): a small service that scrapes a public page by trying the cheapest polite method first.
+- [agent-guardrails](https://github.com/erikatagentic/agent-guardrails): the checks that run before an AI coder's commit lands.
+- [reply-sorter](https://github.com/erikatagentic/reply-sorter): tells you how many replies came from a person.
+- [formd-signals](https://github.com/erikatagentic/formd-signals): finds companies that just raised money, from free SEC filings.
 
 [erikhernal.com](https://erikhernal.com/?utm_source=github) · [erik@erikhernal.com](mailto:erik@erikhernal.com) · [LinkedIn](https://linkedin.com/in/erikhernal/)

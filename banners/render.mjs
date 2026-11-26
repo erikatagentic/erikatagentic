@@ -16,6 +16,7 @@ const SHOWCASES = {
   'scrape-ladder': 'Scrapes a public page by trying the cheapest polite method first.',
   'agent-guardrails': "Five checks that stop a coding agent's risky moves before\u00a0they\u00a0run.",
   'reply-sorter': 'Sorts cold-email replies and counts the yeses a\u00a0person\u00a0wrote.',
+  'formd-signals': 'Finds companies that just raised money, from free SEC\u00a0filings.',
 };
 
 const jobs = [];
